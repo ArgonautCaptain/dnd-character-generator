@@ -13,7 +13,7 @@ import {
   Box,
   Grid
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
 
 const alignments = [
   'Chaotic Evil', 'Chaotic Neutral', 'Chaotic Good',
@@ -55,7 +55,7 @@ function CharacterDetails() {
 
   const fetchCharacter = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/characters/${id}`);
+      const response = await api.get(`/characters/${id}`);
       setFormData(prev => ({
         ...prev,
         ...response.data
@@ -76,7 +76,7 @@ function CharacterDetails() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/characters/${id}`, formData);
+      await api.put(`/characters/${id}`, formData);
       navigate(`/character/${id}/abilities`);
     } catch (error) {
       console.error('Error updating character:', error);

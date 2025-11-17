@@ -17,7 +17,7 @@ import {
   DialogActions,
   Divider
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
 
 const races = [
   'Dragonborn', 'Hill Dwarf', 'Mountain Dwarf', 'High Elf', 'Wood Elf', 'Eladrin', 'Dark Elf',
@@ -202,7 +202,7 @@ function CreateCharacter() {
         }
       };
 
-      await axios.post('http://localhost:5000/api/characters', randomCharacter);
+      await api.post("/characters", randomCharacter);
       setRandomDialogOpen(false);
       navigate('/');
     } catch (error) {
@@ -213,7 +213,7 @@ function CreateCharacter() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/characters', formData);
+      const response = await api.post("/characters", formData);
       navigate(`/character/${response.data._id}/details`);
     } catch (error) {
       console.error('Error creating character:', error);

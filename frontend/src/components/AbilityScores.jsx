@@ -15,7 +15,8 @@ import {
   MenuItem,
   Divider
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
+
 
 const abilities = [
   'strength',
@@ -103,7 +104,7 @@ function AbilityScores() {
         [ability]: roll?.value || ''
       }), {});
 
-      await axios.put(`http://localhost:5000/api/characters/${id}`, {
+      await api.put(`/characters/${id}`, {
         abilityScores: abilityScoresToSubmit
       });
       navigate(`/character/${id}`);

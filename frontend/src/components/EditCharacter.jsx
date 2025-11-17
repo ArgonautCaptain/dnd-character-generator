@@ -15,7 +15,7 @@ import {
   Tabs,
   Tab
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
 
 const races = [
   'Dragonborn', 'Hill Dwarf', 'Mountain Dwarf', 'High Elf', 'Wood Elf', 'Eladrin', 'Dark Elf',
@@ -86,7 +86,7 @@ function EditCharacter() {
 
   const fetchCharacter = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/characters/${id}`);
+      const response = await api.get(`/characters/${id}`);
       setFormData(response.data);
     } catch (error) {
       console.error('Error fetching character:', error);
@@ -115,7 +115,7 @@ function EditCharacter() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/characters/${id}`, formData);
+      await api.put(`/characters/${id}`, formData);
       navigate(`/character/${id}`);
     } catch (error) {
       console.error('Error updating character:', error);

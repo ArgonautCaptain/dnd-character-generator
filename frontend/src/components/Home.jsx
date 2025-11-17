@@ -16,7 +16,7 @@ import {
   TextField,
   Divider
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
 
 function Home() {
   const [characters, setCharacters] = useState([]);
@@ -31,12 +31,13 @@ function Home() {
 
   const fetchCharacters = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/characters');
+      const response = await api.get('/characters');
       setCharacters(response.data);
     } catch (error) {
       console.error('Error fetching characters:', error);
     }
   };
+
 
   const handleDeleteClick = (character) => {
     setCharacterToDelete(character);
@@ -46,7 +47,7 @@ function Home() {
 
   const handleDeleteConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/characters/${characterToDelete._id}`);
+      await api.delete(`/characters/${characterToDelete._id}`);
       setDeleteDialogOpen(false);
       setCharacterToDelete(null);
       setDeleteConfirmation('');
@@ -94,13 +95,13 @@ function Home() {
                 <Divider />
                 <CardActions>
                   <Button
-                    size="small" 
+                    size="small"
                     color="inherit"
                     onClick={() => navigate(`/character/${character._id}`)}>
                     View
                   </Button>
                   <Button
-                    size="small" 
+                    size="small"
                     color="inherit"
                     onClick={() => navigate(`/character/${character._id}/edit`)}>
                     Edit
@@ -148,7 +149,7 @@ function Home() {
             setDeleteDialogOpen(false);
             setDeleteConfirmation('');
           }}
-          color="inherit"
+            color="inherit"
           >
             Cancel
           </Button>

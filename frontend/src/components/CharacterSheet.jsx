@@ -13,7 +13,7 @@ import {
   DialogActions,
   Divider
 } from '@mui/material';
-import axios from 'axios';
+import api from '../api/apiClient';
 
 function CharacterSheet() {
   const { id } = useParams();
@@ -27,7 +27,7 @@ function CharacterSheet() {
 
   const fetchCharacter = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/api/characters/${id}`);
+      const response = await api.get(`/characters/${id}`);
       setCharacter(response.data);
     } catch (error) {
       console.error('Error fetching character:', error);
@@ -36,7 +36,7 @@ function CharacterSheet() {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/characters/${id}`);
+      await api.delete(`/characters/${characterToDelete._id}`);
       navigate('/');
     } catch (error) {
       console.error('Error deleting character:', error);
