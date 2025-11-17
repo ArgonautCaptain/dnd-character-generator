@@ -4,7 +4,7 @@ _A full-stack MERN application for generating, customizing, and saving D&D 5e ch
 ![App Screenshot](./screenshots/home.png)
 
 ## 🎯 Overview
-This project is a complete character-creation tool built for **Dungeons & Dragons 5th Edition**.  
+This project is a basic character-creation tool built for **Dungeons & Dragons 5th Edition**.  
 It allows users to **generate characters**, **customize every detail**, and **store them in MongoDB** for later editing or deletion.
 
 The app provides a clean, modern UI inspired by gaming dashboards and walks the user through creating a character step-by-step:
@@ -18,8 +18,7 @@ This project was built as part of my final full-stack development assessment and
 
 ---
 
-# 🚀 Live Demo (Optional)
-If you deploy the demo, add the link here.  
+# 🚀 Live Demo
 **Live App:** _Coming soon_
 
 ---
