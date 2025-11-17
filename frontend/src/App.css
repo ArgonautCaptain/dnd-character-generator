@@ -1,0 +1,67 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+/* Remove default center alignment and max-width constraints */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Ensure the app container takes full width */
+.app-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Style for dropdown menus */
+.MuiSelect-select {
+  min-width: 200px !important;
+}
+
+/* Ensure dropdown menus have consistent width */
+.MuiPaper-root.MuiMenu-paper {
+  min-width: 250px !important;
+}
+
+/* Style for cards */
+.card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-content {
+  flex-grow: 1;
+}
+
+/* Remove unused styles */
+.logo,
+.logo:hover,
+.logo.react:hover,
+.read-the-docs {
+  display: none;
+}
+
+/* Disable autofill background color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #1e1e1e inset !important;
+  -webkit-text-fill-color: white !important;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/* For Firefox */
+input:-moz-autofill {
+  background-color: #1e1e1e !important;
+  color: white !important;
+}
