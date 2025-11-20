@@ -19,7 +19,9 @@ This project was built as part of my final full-stack development assessment and
 ---
 
 # 🚀 Live Demo
-**Live App:** _Coming soon_
+**Live App:** https://dnd-character-generator.onrender.com/
+
+Note: Hosted on Render’s free tier. The first request after inactivity may take ~30–60 seconds while the backend spins up.
 
 ---
 
